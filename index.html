@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <title>Form Assignment</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+       <div class="wrapper">
+        <form>
+            <fieldset>
+                <legend>Form Assignment</legend>
+                <div class="information">
+                <div class="fname">
+                    <label for="fname">Full Name:</label>
+                    <input type="text" id="fname">
+                </div>
+                <div class="email">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email">
+                </div>
+                </div>
+                <div class="message">
+                    <label for="message">Message:</label>
+                    <textarea id="message"></textarea>
+                </div>
+                <div class="box">
+                    <input class="btn" type="button" id="submit" value="SUBMIT">
+                </div>
+            </fieldset>
+        </form>
+        </div>
+        <div class="correspondance"></div>
+        <script>
+            let fn = document.getElementById("fname");
+            let em = document.getElementById("email");
+            let msg = document.getElementById("message");
+            let btn = document.getElementById("submit");
+
+            function formValidator(){
+                let feedback = {};
+                let errors = [];
+                if (fn.value !== ""){                    
+                    feedback.fname = fn.value;
+                } else {                    
+                    errors.push("<p>Fullname is missing</p>");
+                }
+                
+                if (em.value !== ""){
+                    feedback.email = em.value;
+                } else {
+                    errors.push("<p>Email is missing</p>");
+                }
+
+                if (msg.value !== ""){
+                    feedback.message = msg.value;
+                } else {
+                    errors.push("<p>Message name is missing</p>");
+                }
+
+                if (errors.length ===0){
+                    console.log(feedback);
+                }else{
+                    console.log(errors);
+                }
+            }
+
+            btn.addEventListener("click", formValidator);
+        </script>
+</body>
+</html>
